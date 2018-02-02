@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'mysql2', '>= 0.3.18', '< 0.5'
+gem 'slim'
+gem 'ridgepole'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
