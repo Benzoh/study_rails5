@@ -31,13 +31,22 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'mysql2', '>= 0.3.18', '< 0.5'
-gem 'slim'
 gem 'ridgepole'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap_form'
+
+## HTML テンプレート
+gem 'slim-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  ## エラー画面
+  gem 'better_errors' # エラー画面をいい感じに
+  gem 'binding_of_caller' # エラー画面でREPLを操作できる
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver

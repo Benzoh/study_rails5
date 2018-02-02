@@ -1,0 +1,6 @@
+create_table "questions", force: true do |t|
+    t.text "title"
+    t.text "content"
+    t.text "name"
+    t.boolean "finished"
+end

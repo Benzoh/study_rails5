@@ -1,0 +1,5 @@
+create_table "answers", force: true do |t|
+    t.integer "question_id"
+    t.text "content"
+    t.text "name"
+end
