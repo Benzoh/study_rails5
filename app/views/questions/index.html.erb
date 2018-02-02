@@ -5,6 +5,8 @@
 <table>
   <thead>
     <tr>
+      <th>Title</th>
+      <th>Finished</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +14,8 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
+        <td><%= question.title %></td>
+        <td><%= question.finished ? '終了' : '受付中' %></td>
         <td><%= link_to 'Show', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
         <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -22,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Question', new_question_path %>
+<%= link_to '質問を作成する', new_question_path %>
