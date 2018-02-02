@@ -2,4 +2,6 @@ create_table "answers", force: true do |t|
     t.integer "question_id"
     t.text "content"
     t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
 end
