@@ -69,6 +69,11 @@ class QuestionariesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def questionary_params
-      params.fetch(:questionary, {})
+      # params.fetch(:questionary, {})
+      params.require(:questionary).permit(
+        :title,
+        :description,
+        :deadline
+      )
     end
 end

@@ -6,4 +6,14 @@
         - @questionary.errors.full_messages.each do |message|
           li = message
 
+  .form-group
+    = f.label :title
+    = f.text_field :title, { class: 'form-control' }
+  .form-group
+    = f.label :description
+    = f.text_field :description
+  .form-group
+    = f.label :deadline
+    = f.date_field :deadline
+  br
   .actions = f.submit
