@@ -1,19 +1,36 @@
-h1 Listing questionaries
+p#notice
+  = notice
+
+h1 レッツ・アンケート
 
 table
   thead
     tr
+      th タイトル
+      th 期間
       th
       th
       th
 
   tbody
+    - dx = 60 * 60 * 9
     - @questionaries.each do |questionary|
       tr
-        td = link_to 'Show', questionary
+        td = questionary.title
+        <td>
+          = 'あと、約' + ((questionary.deadline - DateTime.now - dx) / (60 * 60 * 24)).to_i.to_s + '日'
+          - if questionary.deadline - dx > DateTime.now
+            span.not_finished 受付中
+            </td>
+            td = link_to 'アンケートを表示', questionary
+          / TODO: シンタックスエラー
+          / − else
+          /   span.finished
+          /   </td>
+        td
         td = link_to 'Edit', edit_questionary_path(questionary)
         td = link_to 'Destroy', questionary, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'New Questionary', new_questionary_path
+= link_to '新しいアンケートを作る', new_questionary_path
