@@ -1,5 +1,7 @@
-h1 New questionary_choice
+h1 選択肢の作成
 
-== render 'form'
+p 「#{@questionary_item.content}」の選択肢
 
-= link_to 'Back', questionary_choices_path
+== render 'form', questionary_choice; @questionary_choice
+hr
+= link_to '次の質問を作成する', '/questionary_items/new/' + @questionary_item.questionary_id.to_s
