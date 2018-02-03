@@ -39,14 +39,14 @@ gem 'bootstrap_form'
 ## HTML テンプレート
 gem 'slim-rails'
 
+## エラー画面
+gem 'better_errors' # エラー画面をいい感じに
+gem 'binding_of_caller' # エラー画面でREPLを操作できる
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  ## エラー画面
-  gem 'better_errors' # エラー画面をいい感じに
-  gem 'binding_of_caller' # エラー画面でREPLを操作できる
-
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
