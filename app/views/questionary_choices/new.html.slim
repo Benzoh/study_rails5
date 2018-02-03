@@ -1,7 +1,12 @@
 h1 選択肢の作成
 
+/ バリデーションエラーがある際、値なしでエラー
+/ TODO: ここ間に合わせ対応
+- if @questionary_item.blank?
+    - @questionary_item = QuestionaryItem.find @questionary_choice.questionary_item_id
+
 p 「#{@questionary_item.content}」の選択肢
 
-== render 'form', questionary_choice; @questionary_choice
+== render 'form', questionary_choice: @questionary_choice
 hr
 = link_to '次の質問を作成する', '/questionary_items/new/' + @questionary_item.questionary_id.to_s

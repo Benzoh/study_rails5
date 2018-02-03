@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # コントローラーでの実装上以下がないと404エラーになる
   # パラメータを受け取るためのルーティングと言ってもよい？
   get 'questionary_items/new/:id', to: 'questionary_items#new'
+  get 'questionary_choices/new/:id', to: 'questionary_choices#new'
 
   resources :questionary_results
   resources :questionary_choices

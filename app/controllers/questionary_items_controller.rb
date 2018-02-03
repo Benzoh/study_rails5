@@ -30,7 +30,7 @@ class QuestionaryItemsController < ApplicationController
 
     respond_to do |format|
       if @questionary_item.save
-        format.html { redirect_to '/questionary_choices/new/' + @questionary.id.to_s }
+        format.html { redirect_to '/questionary_choices/new/' + @questionary_item.id.to_s }
         format.json { render :show, status: :created, location: @questionary_item }
       else
         format.html { render :new }
@@ -71,6 +71,10 @@ class QuestionaryItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def questionary_item_params
-      params.fetch(:questionary_item, {})
+      # params.fetch(:questionary_item, {})
+      params.require(:questionary_item).permit(
+        :content,
+        :questionary_id
+      )
     end
 end

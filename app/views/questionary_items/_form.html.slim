@@ -6,4 +6,11 @@
         - @questionary_item.errors.full_messages.each do |message|
           li = message
 
+  .form-group
+    = f.label :content
+    = f.text_field :content, { class: 'form-control' }
+  .form-group
+    = f.label :questionary_id
+    = f.text_field :questionary_id
+  br
   .actions = f.submit

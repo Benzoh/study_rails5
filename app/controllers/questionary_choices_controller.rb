@@ -17,6 +17,7 @@ class QuestionaryChoicesController < ApplicationController
     @questionary_choice = QuestionaryChoice.new
     @questionary_choice.questionary_item_id = params[:id]
     @questionary_item = QuestionaryItem.find params[:id]
+    # raise
   end
 
   # GET /questionary_choices/1/edit
@@ -71,6 +72,10 @@ class QuestionaryChoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def questionary_choice_params
-      params.fetch(:questionary_choice, {})
+      params.require(:questionary_choice).permit(
+        :content,
+        :value,
+        :questionary_item_id
+      )
     end
 end
