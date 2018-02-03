@@ -1,0 +1,9 @@
+= form_for @questionary do |f|
+  - if @questionary.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@questionary.errors.count, "error")} prohibited this questionary from being saved:"
+      ul
+        - @questionary.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit

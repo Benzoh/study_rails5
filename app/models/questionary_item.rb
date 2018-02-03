@@ -1,0 +1,2 @@
+class QuestionaryItem < ApplicationRecord
+end

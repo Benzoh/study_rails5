@@ -1,0 +1,7 @@
+create_table "questionary_choices", force: true do |t|
+    t.text "content"
+    t.integer "value"
+    t.integer "questionary_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+end

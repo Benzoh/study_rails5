@@ -1,0 +1,19 @@
+h1 Listing questionary_choices
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @questionary_choices.each do |questionary_choice|
+      tr
+        td = link_to 'Show', questionary_choice
+        td = link_to 'Edit', edit_questionary_choice_path(questionary_choice)
+        td = link_to 'Destroy', questionary_choice, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Questionary choice', new_questionary_choice_path

@@ -1,0 +1,6 @@
+create_table "questionary_results", force: true do |t|
+    t.integer "questionary_id"
+    t.text "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+end

@@ -1,5 +1,9 @@
 require 'answers.schema'
 require 'questions.schema'
+require 'questionaries.schema'
+require 'questionary_choices.schema'
+require 'questionary_items.schema'
+require 'questionary_results.schema'
 
  
 
