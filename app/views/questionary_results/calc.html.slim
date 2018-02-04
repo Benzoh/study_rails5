@@ -1,0 +1,18 @@
+h1 #{@questionary.title} の集計
+
+p ※回答の一番最初のものは無選択の数を示す。
+p 以後、１つ目の選択肢を選んだ数、２つ目の・・・と続く。
+p １つしか回答がないものは、何も選択されていない（問題が存在しない）と考えてください。
+
+table
+    tr
+        th 質問ID
+        th 集計
+    - @calc.each do |ky, vl|
+        tr
+            td = ky
+                table
+                    tr
+                        - for v in vl
+                            td = v.to_i
+

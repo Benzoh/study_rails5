@@ -19,7 +19,7 @@ class QuestionaryResultsController < ApplicationController
     results = QuestionaryResult.where(questionary_id: params[:id])
     @calc = {}
     results.each do |result|
-      data = result,result.split ','
+      data = result.result.split ','
       data.each do |value|
         keyval = value.split ':'
         ky = keyval[0].to_s
