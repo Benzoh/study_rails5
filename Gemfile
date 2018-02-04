@@ -33,8 +33,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'ridgepole'
 
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'bootstrap_form'
+gem 'bootstrap'
+gem 'jquery-rails'
+# gem 'bootstrap_form'
 
 ## HTML テンプレート
 gem 'slim-rails'
