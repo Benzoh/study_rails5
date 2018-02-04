@@ -1,0 +1,19 @@
+= form_for @user do |f|
+  - if @user.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      ul
+        - @user.errors.full_messages.each do |message|
+          li = message
+
+  .form-group
+    = f.label :name, '名前'
+    = f.text_field :name, class: 'form-control'
+  / .form-group
+  /   = f.label :slug, 'スラッグ'
+  /   = f.text_field :slug, class: 'form-control'
+  .form-group
+    = f.label :role_id, '権限'
+    = f.collection_select :role_id, Role.all, :id, :name, {}, class: "form-control"
+
+  .actions = f.submit

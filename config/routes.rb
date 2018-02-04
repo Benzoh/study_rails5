@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+  resources :roles
+  resources :users
+  resources :divisions
+  get 'schedules', to: 'schedules#new'
   resources :manager_schedules
   resources :manger_schedules
   resources :editor_schedules
   resources :designer_schedules
   resources :schedules
+
   # コントローラーでの実装上以下がないと404エラーになる
   # パラメータを受け取るためのルーティングと言ってもよい？
   get 'questionary_items/new/:id', to: 'questionary_items#new'

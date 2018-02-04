@@ -10,19 +10,31 @@
 
   <body class="pt-md-5">
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="<%= questionaries_url %>">Rails Sample - アンケートサイト</a>
+      <a class="navbar-brand" href="<%= schedules_url %>">Rails Sample</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
+            <a class="nav-link" href="<%= schedules_url %>">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= users_url %>">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= divisions_url %>">Divisions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= roles_url %>">Roles</a>
+          </li>
+          <% if false %>
+          <li class="nav-item active">
             <a class="nav-link" href="<%= questionaries_url %>">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<%= questionary_results_url %>">Results</a>
           </li>
-          <% if false %>
           <li class="nav-item">
             <a class="nav-link" href="#">Pricing</a>
           </li>

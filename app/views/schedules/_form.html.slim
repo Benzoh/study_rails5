@@ -6,4 +6,11 @@
         - @schedule.errors.full_messages.each do |message|
           li = message
 
-  .actions = f.submit
+  .form-group
+    = f.date_field :date, class: 'form-control'
+  .form-group
+    = f.collection_select :division_id, Division.all, :name, {}, {}, class: 'form-control'
+  .form-group
+    = f.collection_select :user_id, User.all, :name, {}, {}, class: 'form-control'
+  .actions
+    = f.submit :submit, { class: 'btn' }
