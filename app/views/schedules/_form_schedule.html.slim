@@ -1,0 +1,24 @@
+pre _form_schedule
+
+= form_for @schedule do |f|
+  - if @schedule.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@schedule.errors.count, "error")} prohibited this schedule from being saved:"
+      ul
+        - @schedule.errors.full_messages.each do |message|
+          li = message
+
+  h4 Designer schedules
+  = f.fields_for :designer_schedules do |schedule|
+    == render 'form_designer_schedule', f: schedule
+
+  h4 Editor schedules
+  = f.fields_for :editor_schedules do |schedule|
+    == render 'form_editor_schedule', f: schedule
+
+  h4 Manager schedules
+  = f.fields_for :manager_schedules do |schedule|
+    == render 'form_manager_schedule', f: schedule
+
+  .actions
+    = f.submit :submit, { class: 'btn' }

@@ -1,4 +1,5 @@
 create_table "designer_schedules", force: true do |t|
+    t.integer "schedule_id"
     t.integer "user_id"
     t.text "content"
     t.datetime "created_at", null: false

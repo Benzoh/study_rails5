@@ -1,5 +1,32 @@
+/ = debug @schedule
+
 p#notice = notice
 
+table.table
+    tr
+        th.col-2 日付
+        td = @schedule.date
+    tr
+        th.col-2 所属
+        td = Division.find(@schedule.division_id).name
+
+table.table
+    - @schedule.designer_schedules.each do |item|
+        tr
+            th.col-2 Content
+            td = item.content
+
+table.table
+    - @schedule.editor_schedules.each do |item|
+        tr
+            th.col-2 Content
+            td = item.content
+
+table.table
+    - @schedule.manager_schedules.each do |item|
+        tr
+            th.col-2 Content
+            td = item.content
 
 => link_to 'Edit', edit_schedule_path(@schedule)
 '|

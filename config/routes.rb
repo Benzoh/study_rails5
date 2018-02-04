@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'schedules', to: 'schedules#new'
+  get 'schedules/schedule_new/:id', to: 'schedules#schedule_new'
+  get 'schedules/edit/:id', to: 'schedules#edit'
   resources :roles
   resources :users
   resources :divisions
-  get 'schedules', to: 'schedules#new'
   resources :manager_schedules
   resources :manger_schedules
   resources :editor_schedules

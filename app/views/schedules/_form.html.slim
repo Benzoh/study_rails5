@@ -9,8 +9,8 @@
   .form-group
     = f.date_field :date, class: 'form-control'
   .form-group
-    = f.collection_select :division_id, Division.all, :name, {}, {}, class: 'form-control'
+    = f.collection_select :division_id, Division.all, :id, :name, {}, class: 'form-control'
   .form-group
-    = f.collection_select :user_id, User.all, :name, {}, {}, class: 'form-control'
+    = f.collection_select :user_id, User.all, :id, :name, {}, class: 'form-control'
   .actions
     = f.submit :submit, { class: 'btn' }
