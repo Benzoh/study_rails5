@@ -19,33 +19,18 @@ class SchedulesController < ApplicationController
   end
 
   def schedule_new
+    @schedule = Schedule.find params[:id]
     @schedule.designer_schedules.build
     @schedule.editor_schedules.build
     @schedule.manager_schedules.build
-    set_form_value_current_user(@schedule)
   end
 
   # GET /schedules/1/edit
   def edit
+    @schedule = Schedule.find params[:id]
     @schedule.designer_schedules.build
     @schedule.editor_schedules.build
     @schedule.manager_schedules.build
-    set_form_value_current_user(@schedule)
-    # @schedule.designer_schedules.each do |d|
-    #   if d.user_id == @user.id
-    #     d.user_id = @user.id
-    #   end
-    # end
-    # @schedule.editor_schedules.each do |d|
-    #   if d.user_id == @user.id
-    #     d.user_id = @user.id
-    #   end
-    # end
-    # @schedule.manager_schedules.each do |d|
-    #   if d.user_id == @user.id
-    #     d.user_id = @user.id
-    #   end
-    # end
   end
 
   # POST /schedules
@@ -136,24 +121,6 @@ class SchedulesController < ApplicationController
         raise
       end
       @user = User.find session[:user_id]
-    end
-
-    def set_form_value_current_user(model)
-      model.designer_schedules.each do |d|
-        if d.user_id == @user.id
-          d.user_id = @user.id
-        end
-      end
-      model.editor_schedules.each do |d|
-        if d.user_id == @user.id
-          d.user_id = @user.id
-        end
-      end
-      model.manager_schedules.each do |d|
-        if d.user_id == @user.id
-          d.user_id = @user.id
-        end
-      end
     end
 
 end
