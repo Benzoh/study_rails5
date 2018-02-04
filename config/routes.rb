@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # パラメータを受け取るためのルーティングと言ってもよい？
   get 'questionary_items/new/:id', to: 'questionary_items#new'
   get 'questionary_choices/new/:id', to: 'questionary_choices#new'
+  get 'questionary_results/calc/:id', to: 'questionary_results#calc'
+  post 'questionaries/:id', to: 'questionaries#sendform'
 
   resources :questionary_results
   resources :questionary_choices
