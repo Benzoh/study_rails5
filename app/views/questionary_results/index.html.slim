@@ -10,10 +10,10 @@ table
   tbody
     - @questionary_results.each do |questionary_result|
       tr
-        td = questionary.id
-        td = questionary.title
+        td = questionary_result.id
+        td = questionary_result.result
         td
-          a href="/questionary_results/#{questionary.id}"
+          a href="/questionary_results/#{questionary_result.id}"
             | Show
         td = link_to 'Show', questionary_result
         td = link_to 'Edit', edit_questionary_result_path(questionary_result)

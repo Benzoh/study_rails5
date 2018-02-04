@@ -10,7 +10,9 @@ table
         th 集計
     - @calc.each do |ky, vl|
         tr
-            td = ky
+            td
+                = ky
+            td
                 table
                     tr
                         - for v in vl
