@@ -22,9 +22,7 @@ class SchedulesController < ApplicationController
     @schedule.designer_schedules.build
     @schedule.editor_schedules.build
     @schedule.manager_schedules.build
-    @schedule.designer_schedules[0].user_id = @user.id
-    @schedule.editor_schedules[0].user_id = @user.id
-    @schedule.manager_schedules[0].user_id = @user.id
+    set_form_value_current_user(@schedule)
   end
 
   # GET /schedules/1/edit
@@ -32,12 +30,22 @@ class SchedulesController < ApplicationController
     @schedule.designer_schedules.build
     @schedule.editor_schedules.build
     @schedule.manager_schedules.build
-    # @schedule.designer_schedules[0].user_id = @user.id
-    @schedule.designer_schedules.each do |d|
-      d.user_id = @user.id
-    end
-    @schedule.editor_schedules[0].user_id = @user.id
-    @schedule.manager_schedules[0].user_id = @user.id
+    set_form_value_current_user(@schedule)
+    # @schedule.designer_schedules.each do |d|
+    #   if d.user_id == @user.id
+    #     d.user_id = @user.id
+    #   end
+    # end
+    # @schedule.editor_schedules.each do |d|
+    #   if d.user_id == @user.id
+    #     d.user_id = @user.id
+    #   end
+    # end
+    # @schedule.manager_schedules.each do |d|
+    #   if d.user_id == @user.id
+    #     d.user_id = @user.id
+    #   end
+    # end
   end
 
   # POST /schedules
@@ -45,7 +53,8 @@ class SchedulesController < ApplicationController
   def create
     @schedule = Schedule.new(schedule_params)
 
-    session[:user_id] = @schedule.user_id
+    # session[:user_id] = @schedule.user_id
+    session[:user_id] = params[:user][:id]
 
     select_schedule_record = Schedule.where(date: @schedule.date)
     # raise
@@ -128,4 +137,23 @@ class SchedulesController < ApplicationController
       end
       @user = User.find session[:user_id]
     end
+
+    def set_form_value_current_user(model)
+      model.designer_schedules.each do |d|
+        if d.user_id == @user.id
+          d.user_id = @user.id
+        end
+      end
+      model.editor_schedules.each do |d|
+        if d.user_id == @user.id
+          d.user_id = @user.id
+        end
+      end
+      model.manager_schedules.each do |d|
+        if d.user_id == @user.id
+          d.user_id = @user.id
+        end
+      end
+    end
+
 end
