@@ -1,0 +1,7 @@
+create_table "users", force: true do |t|
+    t.integer "division_id"
+    t.integer "role_id"
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+end

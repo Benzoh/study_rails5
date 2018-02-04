@@ -5,5 +5,11 @@ require 'questionary_choices.schema'
 require 'questionary_items.schema'
 require 'questionary_results.schema'
 
- 
+require 'users.schema'
+require 'roles.schema'
+require 'divisions.schema'
 
+require 'schedules.schema'
+require 'designer_schedules.schema'
+require 'editor_schedules.schema'
+require 'manager_schedules.schema'
