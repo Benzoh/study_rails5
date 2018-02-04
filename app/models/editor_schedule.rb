@@ -1,0 +1,2 @@
+class EditorSchedule < ApplicationRecord
+end

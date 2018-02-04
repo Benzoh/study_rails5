@@ -1,0 +1,2 @@
+class ManagerSchedule < ApplicationRecord
+end

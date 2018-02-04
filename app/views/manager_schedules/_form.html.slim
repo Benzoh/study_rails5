@@ -1,0 +1,9 @@
+= form_for @manager_schedule do |f|
+  - if @manager_schedule.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@manager_schedule.errors.count, "error")} prohibited this manager_schedule from being saved:"
+      ul
+        - @manager_schedule.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit

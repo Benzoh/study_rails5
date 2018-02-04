@@ -1,0 +1,2 @@
+class DesignerSchedule < ApplicationRecord
+end

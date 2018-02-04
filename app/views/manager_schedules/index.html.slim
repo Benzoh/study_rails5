@@ -1,0 +1,19 @@
+h1 Listing manager_schedules
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @manager_schedules.each do |manager_schedule|
+      tr
+        td = link_to 'Show', manager_schedule
+        td = link_to 'Edit', edit_manager_schedule_path(manager_schedule)
+        td = link_to 'Destroy', manager_schedule, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Manager schedule', new_manager_schedule_path

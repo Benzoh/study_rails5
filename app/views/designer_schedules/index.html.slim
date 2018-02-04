@@ -1,0 +1,19 @@
+h1 Listing designer_schedules
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @designer_schedules.each do |designer_schedule|
+      tr
+        td = link_to 'Show', designer_schedule
+        td = link_to 'Edit', edit_designer_schedule_path(designer_schedule)
+        td = link_to 'Destroy', designer_schedule, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Designer schedule', new_designer_schedule_path

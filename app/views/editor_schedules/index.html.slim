@@ -1,0 +1,19 @@
+h1 Listing editor_schedules
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @editor_schedules.each do |editor_schedule|
+      tr
+        td = link_to 'Show', editor_schedule
+        td = link_to 'Edit', edit_editor_schedule_path(editor_schedule)
+        td = link_to 'Destroy', editor_schedule, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Editor schedule', new_editor_schedule_path
