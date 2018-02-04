@@ -1,5 +1,21 @@
 p#notice = notice
 
+h1 = @questionary.title
+
+table
+    thead
+        tr
+            th Result
+
+    tbody
+        - @questionary_results.each do |result|
+            tr
+                td = result.result
+
+br
+
+a href="/questionary_results/calc/#{ @questionary.id }"
+    | Calc Data
 
 => link_to 'Edit', edit_questionary_result_path(@questionary_result)
 '|
