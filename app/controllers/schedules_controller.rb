@@ -121,6 +121,7 @@ class SchedulesController < ApplicationController
         raise
       end
       @user = User.find session[:user_id]
+      Schedule.user_id = @user.id
     end
 
 end
