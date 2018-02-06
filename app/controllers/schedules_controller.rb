@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: [:show, :edit, :update, :destroy, :schedule_new]
-  before_action :current_user, only: [:new, :show, :edit, :update, :destroy, :schedule_new]
+  before_action :current_user, only: [:new, :show, :edit, :update, :destroy, :schedule_new, :bulk_edit]
 
   # GET /schedules
   # GET /schedules.json
@@ -37,26 +37,46 @@ class SchedulesController < ApplicationController
   # POST /schedules.json
   def create
     @schedule = Schedule.new(schedule_params)
+    _schedule = Schedule.where(date: @schedule.date, division_id: @schedule.division_id)
 
-    # session[:user_id] = @schedule.user_id
     session[:user_id] = params[:user][:id]
 
-    select_schedule_record = Schedule.where(date: @schedule.date)
-    # raise
-    if select_schedule_record.exists? == false
-      respond_to do |format|
-        if @schedule.save
-          format.html { redirect_to '/schedules/schedule_new/' + @schedule.id.to_s, notice: 'Schedule was successfully created.' }
-          format.json { render :show, status: :created, location: @schedule }
-        else
-          format.html { render :new }
-          format.json { render json: @schedule.errors, status: :unprocessable_entity }
-        end
-      end
+    # select_schedule_record = Schedule.where(date: @schedule.date)
+    # # raise
+    # if select_schedule_record.exists? == false
+    #   respond_to do |format|
+    #     if @schedule.save
+    #       format.html { redirect_to '/schedules/schedule_new/' + @schedule.id.to_s, notice: 'Schedule was successfully created.' }
+    #       format.json { render :show, status: :created, location: @schedule }
+    #     else
+    #       format.html { render :new }
+    #       format.json { render json: @schedule.errors, status: :unprocessable_entity }
+    #     end
+    #   end
+    # else
+    #   # raise
+    #   redirect_to '/schedules/edit/' + select_schedule_record.first.id.to_s
+    # end
+
+    if _schedule.exists? == false
+      @schedule.save
     else
-      # raise
-      redirect_to '/schedules/edit/' + select_schedule_record.first.id.to_s
+      @schedule = _schedule.first
     end
+
+    # TODO: 権限 or 編集モードで分岐
+    _user = User.find(params[:user][:id])
+    if _user.role.slug == 'manager'
+      redirect_to "/schedules/" << @schedule.id.to_s << "/bulk_edit"
+    else
+      # test = {}
+      # test[:id] = 100
+      redirect_to "/schedules/" << @schedule.id.to_s << "/bulk_edit/" << _user.id.to_s
+      # redirect_to "/schedules/" << @schedule.id.to_s << "/bulk_edit/" << test[:id].to_s
+    end
+  end
+
+  def bulk_edit
   end
 
   # PATCH/PUT /schedules/1

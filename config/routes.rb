@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   resources :manger_schedules
   resources :editor_schedules
   resources :designer_schedules
-  resources :schedules
+  # resources :schedules
+  resources :schedules do
+    # :user_idはパラメータ名になる
+    get 'bulk_edit/(:user_id)', to: 'schedules#bulk_edit'
+  end
 
   # コントローラーでの実装上以下がないと404エラーになる
   # パラメータを受け取るためのルーティングと言ってもよい？
