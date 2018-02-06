@@ -20,17 +20,17 @@ class SchedulesController < ApplicationController
 
   def schedule_new
     @schedule = Schedule.find params[:id]
-    @schedule.designer_schedules.build
-    @schedule.editor_schedules.build
-    @schedule.manager_schedules.build
+    @schedule.designer_schedules.build(user_id: @current_user.id)
+    @schedule.editor_schedules.build(user_id: @current_user.id)
+    @schedule.manager_schedules.build(user_id: @current_user.id)
   end
 
   # GET /schedules/1/edit
   def edit
     @schedule = Schedule.find params[:id]
-    @schedule.designer_schedules.build
-    @schedule.editor_schedules.build
-    @schedule.manager_schedules.build
+    @schedule.designer_schedules.build(user_id: @current_user.id)
+    @schedule.editor_schedules.build(user_id: @current_user.id)
+    @schedule.manager_schedules.build(user_id: @current_user.id)
   end
 
   # POST /schedules

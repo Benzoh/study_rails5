@@ -2,8 +2,13 @@
 / = debug @schedule
 / = raise
 
+= debug @current_user
+= designer[:content]
+
+/ TODO: ユーザ認証でreadonlyを差し込む
+
 .form-group
     = f.label :content
     = f.text_area :content, class: 'form-control'
 
-= f.hidden_field :user_id, value: @user.id
+= f.hidden_field :user_id
