@@ -44,6 +44,8 @@ gem 'slim-rails'
 gem 'better_errors' # エラー画面をいい感じに
 gem 'binding_of_caller' # エラー画面でREPLを操作できる
 
+gem "cocoon"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
