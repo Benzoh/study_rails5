@@ -11,6 +11,8 @@ class Schedule < ApplicationRecord
     accepts_nested_attributes_for :editor_schedules, reject_if: :content_blank, allow_destroy: true
     accepts_nested_attributes_for :manager_schedules, reject_if: :content_blank, allow_destroy: true
 
+    scope :with_current_user, -> { joins(:designer_schedules).merge(DesignerSchedule.current_user_records) }
+
     def content_blank
         # if self.designer_schedules_attributes["0"].blank?
         #     return true

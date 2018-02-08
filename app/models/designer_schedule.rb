@@ -1,6 +1,8 @@
 class DesignerSchedule < ApplicationRecord
     belongs_to :schedule
 
+    scope :current_user_records, -> { where(member_id: Schedule.user_id) }
+
     before_save :check_user_id
 
     def check_user_id

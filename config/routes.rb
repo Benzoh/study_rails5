@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :schedules do
     # :user_idはパラメータ名になる
     get 'bulk_edit/(:user_id)', to: 'schedules#bulk_edit'
+    get 'edit/(:user_id)', to: 'schedules#edit'
   end
 
   # コントローラーでの実装上以下がないと404エラーになる
