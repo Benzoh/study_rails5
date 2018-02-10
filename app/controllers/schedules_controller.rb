@@ -11,6 +11,7 @@ class SchedulesController < ApplicationController
   # GET /schedules/1
   # GET /schedules/1.json
   def show
+    # raise
   end
 
   # GET /schedules/new
@@ -27,13 +28,14 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
-    # TODO: 自分のレコードと人のレコードを別に取ってくる
+    # TODO: 他人のレコードを編集できなくする
+    # [ ] 
+    # [ ] 
+
     @schedule = Schedule.find params[:schedule_id]
-    @other_user_records = Schedule.with_current_user
-    raise
-    @schedule.designer_schedules.build(user_id: @user.id)
-    @schedule.editor_schedules.build(user_id: @user.id)
-    @schedule.manager_schedules.build(user_id: @user.id)
+    
+
+    # raise
   end
 
   def bulk_edit
@@ -92,6 +94,12 @@ class SchedulesController < ApplicationController
   end
 
   private
+    @@child_schedules = [
+      "designer_schedules",
+      "editor_schedules",
+      "manager_schedules",
+    ]
+
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
       @schedule = Schedule.find(params[:id])

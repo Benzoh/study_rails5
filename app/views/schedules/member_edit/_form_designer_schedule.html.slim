@@ -1,0 +1,16 @@
+= debug __FILE__
+= debug ['schedule_id >>> ', f.object.schedule_id, 'user_id >>> ', f.object.user_id]
+/ = debug @user
+
+- if @user.id != f.object.user_id
+    fieldset disabled="disabled"
+        .form-group
+            = f.label :content
+            = f.text_area :content, class: 'form-control'
+        = f.hidden_field :user_id
+- else
+    fieldset
+        .form-group
+            = f.label :content
+            = f.text_area :content, class: 'form-control'
+        = f.hidden_field :user_id

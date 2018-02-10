@@ -11,22 +11,34 @@ table.table
         td = Division.find(@schedule.division_id).name
 
 table.table
-    - @schedule.designer_schedules.each do |item|
+    thead
         tr
-            th.col-2 Content
-            td = item.content
+            th colspan="2" Designer
+    tbody
+        - @schedule.designer_schedules.each do |item|
+            tr
+                th.col-2 Content
+                td = item.content
 
 table.table
-    - @schedule.editor_schedules.each do |item|
+    thead
         tr
-            th.col-2 Content
-            td = item.content
+            th colspan="2" Editor
+    tbody
+        - @schedule.editor_schedules.each do |item|
+            tr
+                th.col-2 Content
+                td = item.content
 
 table.table
-    - @schedule.manager_schedules.each do |item|
+    thead
         tr
-            th.col-2 Content
-            td = item.content
+            th colspan="2" Manager
+    tbody
+        - @schedule.manager_schedules.each do |item|
+            tr
+                th.col-2 Content
+                td = item.content
 
 => link_to 'Edit', edit_schedule_path(@schedule)
 '|
