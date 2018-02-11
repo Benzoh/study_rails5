@@ -7,15 +7,21 @@ javascript:
     $('#ajax').text('jQueryは動作しています！')
 
 table
-    tr
-        th ID
-        td#id
-
-    tr
-        th NAME
-        td#name
+    = form_tag({controller: 'ajax', action: 'data'}, remote: true) do
+        tr
+            th Name
+            td = text_field_tag :name
+        tr
+            th ID
+            td = text_field_tag :id
+        tr
+            th
+            td = submit_tag "送信"
 
 br
 
-= link_to 'link by Ajax', { action: 'data' }, remote: true
-/ `remote: true` Ajaxでのアクセスリンクを設定する
+table#result
+
+/ = link_to 'link by Ajax', { action: 'data' }, remote: true
+/ / `remote: true` Ajaxでのアクセスリンクを設定する
+

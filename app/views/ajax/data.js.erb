@@ -1,3 +1,9 @@
-console.log("test");
-$('#id').text('<%= @ajax_data.id %>')
-$('#name').text('<%= @ajax_data.name %>')
+console.log('load');
+var data = <%= @data %>;
+var result = '';
+data.forEach(function(e) {
+    result += '<tr><td><table>';
+    result += '<tr><th>NAME</th><td>' + e.name + '(' + e.role_id + ')' + '</td></tr>';
+    result += '</table></td></tr>';
+});
+$('#result').html(result);
