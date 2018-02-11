@@ -6,7 +6,8 @@ class AjaxController < ApplicationController
 
   def data
     # Net::HTTPで外部サイトにアクセス
-    url = URI('https://www6.nhk.or.jp/special/feed/schedule.html')
+    url = URI('http://twitrss.me/twitter_user_to_rss/?user=benzoh_wada')
+    # url = URI('https://www6.nhk.or.jp/special/feed/schedule.html')
     # url = URI('https://news.yahoo.co.jp/pickup/rss.xml')
     # url = URI('https://www.start30blog.com/feed/')
     http = Net::HTTP.new(url.host)
