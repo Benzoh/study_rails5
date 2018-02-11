@@ -1,2 +1,21 @@
 h1 Ajax#index
 p Find me in app/views/ajax/index.html.slim
+
+p#ajax jQueryは動作していません。
+javascript:
+    console.log("test");
+    $('#ajax').text('jQueryは動作しています！')
+
+table
+    tr
+        th ID
+        td#id
+
+    tr
+        th NAME
+        td#name
+
+br
+
+= link_to 'link by Ajax', { action: 'data' }, remote: true
+/ `remote: true` Ajaxでのアクセスリンクを設定する

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'ajax/index'
+  get 'ajax/data'
 
   get 'schedules', to: 'schedules#new'
   get 'schedules/schedule_new/:id', to: 'schedules#schedule_new'
