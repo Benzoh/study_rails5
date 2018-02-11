@@ -4,24 +4,37 @@ p Find me in app/views/ajax/index.html.slim
 p#ajax jQueryは動作していません。
 javascript:
     console.log("test");
-    $('#ajax').text('jQueryは動作しています！')
+    $('#ajax').text('jQueryは動作しています！');
 
-table
-    = form_tag({controller: 'ajax', action: 'data'}, remote: true) do
-        tr
-            th Name
-            td = text_field_tag :name
-        tr
-            th ID
-            td = text_field_tag :id
-        tr
-            th
-            td = submit_tag "送信"
+hr
 
-br
+/ table
+/     = form_tag({controller: 'ajax', action: 'data'}, remote: true) do
+/         tr
+/             th Name
+/             td = text_field_tag :name
+/         tr
+/             th ID
+/             td = text_field_tag :id
+/         tr
+/             th
+/             td = submit_tag "送信"
 
-table#result
+/ br
+
+/ table#result
 
 / = link_to 'link by Ajax', { action: 'data' }, remote: true
 / / `remote: true` Ajaxでのアクセスリンクを設定する
+
+#result no information
+javascript:
+    var f = function() {
+        $.ajax({
+            type: 'GET',
+            url: '/ajax/data'
+        });
+    }
+    setTimeout(f, 600000);
+    f();
 
