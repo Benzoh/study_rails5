@@ -15,3 +15,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w( questions.css )
 Rails.application.config.assets.precompile += %w( questions.js )
+
+Rails.application.config.assets.precompile += %w( ajax.css )
+Rails.application.config.assets.precompile += %w( ajax.js )
