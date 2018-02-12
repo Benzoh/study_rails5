@@ -247,7 +247,12 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  
+  # How To: Add sign_in, sign_out, and sign_up links to your layout template · plataformatec/devise Wiki
+  # https://github.com/plataformatec/devise/wiki/How-To%3A-Add-sign_in,-sign_out,-and-sign_up-links-to-your-layout-template
+  
+  config.sign_out_via = :get
+  # config.sign_out_via = :delete
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
