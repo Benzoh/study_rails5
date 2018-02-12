@@ -2,6 +2,13 @@
 
 <h1>Questions</h1>
 
+<%= @msg %>
+
+<hr>
+
+<div><%= link_to 'go to login_check page!', { action: 'login_check' } %></div>
+<div><%= link_to 'Sign out', destroy_account_session_path, method: :delete %></div>
+
 <table>
   <thead>
     <tr>

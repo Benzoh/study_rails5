@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'questions/login_check'
   devise_for :accounts
   get 'ajax/index'
   post 'ajax/data'

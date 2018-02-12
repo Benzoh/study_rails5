@@ -1,6 +1,12 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   layout 'questions'
+  before_action :authenticate_account!, only: :login_check
+
+  def login_check
+    @account = current_account
+    @msg = 'you logined at: ' + @account.current_sign_in_at.to_s
+  end
 
   # GET /questions
   # GET /questions.json
@@ -63,4 +69,5 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(:title, :content, :name, :finished)
     end
+
 end
