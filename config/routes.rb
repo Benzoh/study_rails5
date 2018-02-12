@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :accounts
   get 'ajax/index'
   post 'ajax/data'
   get 'ajax/data'

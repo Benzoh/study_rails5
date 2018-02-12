@@ -13,3 +13,5 @@ require 'schedules.schema'
 require 'designer_schedules.schema'
 require 'editor_schedules.schema'
 require 'manager_schedules.schema'
+
+require 'accounts.schema'

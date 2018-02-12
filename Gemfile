@@ -46,6 +46,8 @@ gem 'binding_of_caller' # エラー画面でREPLを操作できる
 
 gem "cocoon"
 
+gem 'devise'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
