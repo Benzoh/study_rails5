@@ -1,6 +1,8 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: [:show, :update, :destroy, :schedule_new]
-  before_action :current_user, only: [:new, :show, :edit, :update, :destroy, :schedule_new, :bulk_edit]
+  before_action :current_user, only: [:show, :edit, :update, :destroy, :schedule_new, :bulk_edit]
+  before_action :authenticate_account!
+  before_action :login_user
 
   # GET /schedules
   # GET /schedules.json
@@ -30,11 +32,14 @@ class SchedulesController < ApplicationController
   def edit
     # TODO: 他人のレコードを編集できなくする
     # [ ] 
-    # [ ] 
+
+    # @test = Schedule.with_child_models(@user.id).current_user_records.distinct.find_by(id: params[:schedule_id])
+    # raise
 
     @schedule = Schedule.find params[:schedule_id]
-    
-
+    @schedule.designer_schedules.build(user_id: @user.id)
+    @schedule.editor_schedules.build(user_id: @user.id)
+    @schedule.manager_schedules.build(user_id: @user.id)
     # raise
   end
 
@@ -72,6 +77,9 @@ class SchedulesController < ApplicationController
   # PATCH/PUT /schedules/1
   # PATCH/PUT /schedules/1.json
   def update
+    if @schedule.changed?
+      raise "更新されています"
+    end
     respond_to do |format|
       if @schedule.update(schedule_params)
         format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
@@ -137,10 +145,14 @@ class SchedulesController < ApplicationController
 
     def current_user
       if session[:user_id].blank?
-        raise
+        raise "ユーザーが選択されていません。"
       end
       @user = User.find session[:user_id]
       Schedule.user_id = @user.id
     end
 
+    def login_user
+      @account = current_account
+      # @msg = 'you logined at: ' + @account.current_sign_in_at.to_s
+    end
 end

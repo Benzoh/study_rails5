@@ -1,5 +1,7 @@
 class Schedule < ApplicationRecord
 
+    # include Readonlyable
+
     cattr_accessor :user_id
 
     # has_many :designer_schedules
@@ -11,11 +13,8 @@ class Schedule < ApplicationRecord
     accepts_nested_attributes_for :editor_schedules, allow_destroy: true
     accepts_nested_attributes_for :manager_schedules, allow_destroy: true
 
-    scope :with_child_models, ->(user_id) {
+    scope :with_child_models, ->() {
         joins(:designer_schedules, :editor_schedules, :manager_schedules)
-        .merge(DesignerSchedule.current_user_records(user_id))
-        # .merge(EditorSchedule.current_user_records(user_id))
-        # .merge(ManagerSchedule.current_user_records(user_id))
     }
 
     # scope :with_designer_schedules, ->(user_id) { joins(:designer_schedules).merge(DesignerSchedule.current_user_records(user_id)}

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+  root :to => 'schedules#new'
+
   get 'questions/login_check'
+  get 'schedules/login_check'
   devise_for :accounts
   get 'ajax/index'
   post 'ajax/data'
