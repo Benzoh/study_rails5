@@ -3,7 +3,7 @@ class DesignerSchedule < ApplicationRecord
 
     # include Readonlyable
 
-    scope :current_user_records, ->(user_id) { where(user_id: user_id) }
+    scope :current_user, ->(user_id) { where(user_id: user_id) }
 
     after_save :content_blank?
     # before_save :changed?

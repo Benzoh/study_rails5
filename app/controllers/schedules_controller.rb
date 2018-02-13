@@ -30,17 +30,19 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
-    # TODO: 他人のレコードを編集できなくする
-    # [ ] 
-
-    # @test = Schedule.with_child_models(@user.id).current_user_records.distinct.find_by(id: params[:schedule_id])
-    # raise
-
+    # TODO: 入力ユーザとそうでないユーザで分ける
+    # - クエリーで取ってくるのがどうもうまくできない。
+    # - accepts_nested_attributes_forがついてるからとかかなー。
+    
     @schedule = Schedule.find params[:schedule_id]
-    @schedule.designer_schedules.build(user_id: @user.id)
-    @schedule.editor_schedules.build(user_id: @user.id)
-    @schedule.manager_schedules.build(user_id: @user.id)
-    # raise
+    _designer_schedules = DesignerSchedule.current_user(@user.id).where(id: params[:schedule_id])
+    raise
+    @schedule.designer_schedules = _designer_schedules
+
+    # @schedule.designer_schedules.build(user_id: @user.id)
+    # @schedule.editor_schedules.build(user_id: @user.id)
+    # @schedule.manager_schedules.build(user_id: @user.id)
+    # # raise
   end
 
   def bulk_edit
@@ -77,9 +79,9 @@ class SchedulesController < ApplicationController
   # PATCH/PUT /schedules/1
   # PATCH/PUT /schedules/1.json
   def update
-    if @schedule.changed?
-      raise "更新されています"
-    end
+    # if @schedule.changed?
+    #   raise "更新されています"
+    # end
     respond_to do |format|
       if @schedule.update(schedule_params)
         format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
