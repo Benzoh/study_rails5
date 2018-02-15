@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+date = ['one', 'two', 'three', 'gour', 'sfasdf', 'safdasjk', 'safas', 'sfsjk', 'ten', 'white', 'black', 'osaka', 'higashioosaka', 'midori', 'kurumi', 'coffee', 'sun', 'right', 'black', 'glay']
+
+for i in 1..100 do
+    DataPage.create date: date.sample
+end
+
+# $ rails db:seed
