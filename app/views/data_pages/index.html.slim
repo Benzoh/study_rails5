@@ -1,0 +1,21 @@
+h1 Listing data_pages
+
+table
+  thead
+    tr
+      th Date
+      th
+      th
+      th
+
+  tbody
+    - @data_pages.each do |data_page|
+      tr
+        td = data_page.date
+        td = link_to 'Show', data_page
+        td = link_to 'Edit', edit_data_page_path(data_page)
+        td = link_to 'Destroy', data_page, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Data page', new_data_page_path

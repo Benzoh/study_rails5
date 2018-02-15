@@ -1,0 +1,4 @@
+create_table :data_pages do |t|
+    t.text :date
+    t.timestamps
+end

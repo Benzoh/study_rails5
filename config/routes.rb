@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root :to => 'schedules#new'
+  resources :data_pages
+  root :to => 'schedules#index'
 
   get 'questions/login_check'
   get 'schedules/login_check'

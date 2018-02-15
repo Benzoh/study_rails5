@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Date:
+  = @data_page.date
+
+=> link_to 'Edit', edit_data_page_path(@data_page)
+'|
+=< link_to 'Back', data_pages_path

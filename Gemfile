@@ -48,6 +48,8 @@ gem "cocoon"
 
 gem 'devise'
 
+gem 'kaminari'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
