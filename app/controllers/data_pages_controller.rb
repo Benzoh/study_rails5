@@ -4,7 +4,8 @@ class DataPagesController < ApplicationController
   # GET /data_pages
   # GET /data_pages.json
   def index
-    @data_pages = DataPage.all
+    # @data_pages = DataPage.all
+    @data_pages = DataPage.page params[:page]
   end
 
   # GET /data_pages/1
