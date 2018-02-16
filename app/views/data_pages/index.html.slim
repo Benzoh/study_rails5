@@ -21,6 +21,8 @@ table
         td = link_to 'Destroy', data_page, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
-div = paginate @data_pages
+div
+  = page_entries_info @data_pages
+  = paginate @data_pages
 
 = link_to 'New Data page', new_data_page_path
