@@ -33,9 +33,15 @@
             <a class="nav-link" href="#">ユーザー名：<%= @user.name %></a>
           </li>
           <% end %>
+          <% if @current_account %>
           <li class="nav-item">
             <a class="nav-link" href="#">ログインユーザー：<%= @current_account.email %></a>
           </li>
+          <% else %>
+          <li class="nav-item">
+            <a class="nav-link" href="/accounts/sign_in">ログイン</a>
+          </li>
+          <% end %>
           <% if false %>
           <li class="nav-item active">
             <a class="nav-link" href="<%= questionaries_url %>">Home <span class="sr-only">(current)</span></a>
