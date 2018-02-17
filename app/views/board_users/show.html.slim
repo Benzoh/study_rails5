@@ -1,15 +1,19 @@
-p#notice = notice
+h1 = @board_user.nickname
+table
+  tr
+    th Nickname
+    td = @board_user.nickname
+  tr
+    th ID
+    td = @board_user.id
+  tr
+    th Created at
+    td = @board_user.created_at
+  tr
+    th Memo
+    td = @board_user.memo
 
-p
-  strong Nickname:
-  = @board_user.nickname
-p
-  strong Account:
-  = @board_user.account_id
-p
-  strong Memo:
-  = @board_user.memo
-
-=> link_to 'Edit', edit_board_user_path(@board_user)
-'|
-=< link_to 'Back', board_users_path
+hr/
+= link_to '<< Back', controller: :board_messages
+hr/
+.copy copyright Bzoh 2018

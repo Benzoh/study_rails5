@@ -6,13 +6,17 @@
         - @board_user.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :nickname
-    = f.text_area :nickname
-  .field
-    = f.label :account_id
-    = f.number_field :account_id
-  .field
-    = f.label :memo
-    = f.text_area :memo
-  .actions = f.submit
+  table
+    tr.field
+      th = f.label :nickname
+      td = f.text_field :nickname
+    
+    = f.hidden_field :account_id
+    
+    tr.field
+      th = f.label :memo
+      td = f.text_area :memo
+    
+    tr.actions
+      th
+      td = f.submit

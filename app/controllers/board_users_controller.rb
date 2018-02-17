@@ -6,13 +6,14 @@ class BoardUsersController < ApplicationController
   # GET /board_users
   # GET /board_users.json
   def index
-    users = BoardUser.where 'account_id' == ?', current_account.:id
+    # users = BoardUser.where 'account_id == ?', current_account.id
+    users = BoardUser.where account_id: current_account.id
     if users[0] == nil then
       user = BoardUser.new
       user.account_id = current_account.id
       user.nickname = '<<no name>>'
       user.save
-      users = BoardUser.where 'account_id == ?', current_account.id
+      users = BoardUser.where account_id: current_account.id
     end
     @board_user = users[0]
   end
