@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+# ActiveRecord::Schema.define(version: 0) do
 
-  create_table "answer", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.integer "question_id"
-    t.text "content"
-    t.text "name"
-  end
+#   create_table "answer", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+#     t.integer "question_id"
+#     t.text "content"
+#     t.text "name"
+#   end
 
-  create_table "question", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.text "title"
-    t.text "content"
-    t.text "name"
-    t.boolean "finished"
-  end
+#   create_table "question", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+#     t.text "title"
+#     t.text "content"
+#     t.text "name"
+#     t.boolean "finished"
+#   end
 
-end
+# end
