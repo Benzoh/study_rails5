@@ -1,23 +1,27 @@
-h1 Listing board_messages
+p#notice = notice
 
-table
+h1 Message Board
+
+= render 'form', board_message: @board_message
+p = link_to 'go home >>', controller: :board_users
+hr/
+
+h2 Posted Messages.
+
+table width="90%"
   thead
     tr
       th Content
-      th Board user
-      th
-      th
-      th
+      th width="150px" Board user
 
   tbody
     - @board_messages.each do |board_message|
       tr
         td = board_message.content
-        td = board_message.board_user_id
-        td = link_to 'Show', board_message
-        td = link_to 'Edit', edit_board_message_path(board_message)
-        td = link_to 'Destroy', board_message, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to board_message.board_user.nickname, controller: :board_users, action: :show, id:board_message.board_user_id
 
 br
+= paginate @board_messages
+hr/
 
-= link_to 'New Board message', new_board_message_path
+.copy copyright Bzoh 2018

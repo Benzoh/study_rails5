@@ -45,7 +45,7 @@ class BoardUsersController < ApplicationController
   def update
     respond_to do |format|
       if @board_user.update(board_user_params)
-        format.html { redirect_to 'board_messages' }
+        format.html { redirect_to '/board_messages' }
         format.json { render :show, status: :ok, location: @board_user }
       else
         format.html { render :index }

@@ -1,9 +1,9 @@
-= form_for @board_user do |f|
-  - if @board_user.errors.any?
+= form_for board_user do |f|
+  - if board_user.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@board_user.errors.count, "error")} prohibited this board_user from being saved:"
+      h2 = "#{pluralize(board_user.errors.count, "error")} prohibited this board_user from being saved:"
       ul
-        - @board_user.errors.full_messages.each do |message|
+        - board_user.errors.full_messages.each do |message|
           li = message
 
   table
