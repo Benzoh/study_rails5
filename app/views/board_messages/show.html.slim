@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Content:
+  = @board_message.content
+p
+  strong Board user:
+  = @board_message.board_user_id
+
+=> link_to 'Edit', edit_board_message_path(@board_message)
+'|
+=< link_to 'Back', board_messages_path

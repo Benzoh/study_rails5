@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Nickname:
+  = @board_user.nickname
+p
+  strong Account:
+  = @board_user.account_id
+p
+  strong Memo:
+  = @board_user.memo
+
+=> link_to 'Edit', edit_board_user_path(@board_user)
+'|
+=< link_to 'Back', board_users_path

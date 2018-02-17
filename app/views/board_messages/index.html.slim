@@ -1,0 +1,23 @@
+h1 Listing board_messages
+
+table
+  thead
+    tr
+      th Content
+      th Board user
+      th
+      th
+      th
+
+  tbody
+    - @board_messages.each do |board_message|
+      tr
+        td = board_message.content
+        td = board_message.board_user_id
+        td = link_to 'Show', board_message
+        td = link_to 'Edit', edit_board_message_path(board_message)
+        td = link_to 'Destroy', board_message, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Board message', new_board_message_path

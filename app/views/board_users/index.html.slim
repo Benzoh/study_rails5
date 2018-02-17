@@ -1,0 +1,25 @@
+h1 Listing board_users
+
+table
+  thead
+    tr
+      th Nickname
+      th Account
+      th Memo
+      th
+      th
+      th
+
+  tbody
+    - @board_users.each do |board_user|
+      tr
+        td = board_user.nickname
+        td = board_user.account_id
+        td = board_user.memo
+        td = link_to 'Show', board_user
+        td = link_to 'Edit', edit_board_user_path(board_user)
+        td = link_to 'Destroy', board_user, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Board user', new_board_user_path

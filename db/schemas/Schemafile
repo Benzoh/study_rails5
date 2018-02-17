@@ -16,3 +16,6 @@ require 'manager_schedules.schema'
 
 require 'accounts.schema'
 require 'data_pages.schema'
+
+require 'board_users.schema'
+require 'board_messages.schema'
